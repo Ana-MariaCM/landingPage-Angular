@@ -1,0 +1,102 @@
+<div class="container-fluid" id="seccion3">
+  <br>
+  <h5 class="text-center mb-4">¿No tienes cuenta?</h5>
+  <h2 class="text-center mb-4">Regístrate</h2>
+  <p class="lead text-center mb-4">
+    Completa este formulario para registrarte y poder agendar tus citas médicas de manera rápida y sencilla.
+  </p>
+
+  <div class="col-12 col-md-8 col-lg-6 mx-auto">
+    <form id="formularioContacto">
+
+      <!-- Tipo de Identificación -->
+      <div class="mb-3">
+        <label for="identificacion" class="form-label">Tipo de Identificación:</label>
+        <select #tipoIdentificacion id="identificacion" name="tipo-identificacion" class="form-select"
+          (blur)="validarTipoIdentificacion(tipoIdentificacion)">
+          <option value="" disabled selected>Seleccione un tipo de identificación</option>
+          <option value="cc">Cédula de Ciudadanía</option>
+          <option value="ti">Tarjeta de Identidad</option>
+          <option value="ce">Cédula de Extranjería</option>
+          <option value="pas">Pasaporte</option>
+        </select>
+        <label class="text-danger form-text">{{ errores.tipoIdentificacion }}</label><br>
+      </div>
+
+      <!-- Número de Identificación -->
+      <div class="mb-3">
+        <label for="numero-identificacion" class="form-label">Número de Identificación:</label>
+        <input #numeroIdentificacion type="text" id="numero-identificacion" name="numero-identificacion"
+          class="form-control" placeholder="Número de identificación"
+          (blur)="validarNumeroIdentificacion(numeroIdentificacion)">
+        <label class="text-danger form-text">{{ errores.numeroIdentificacion }}</label><br>
+      </div>
+
+      <!-- Nombres -->
+      <div class="mb-3">
+        <label for="nombres" class="form-label">Nombres:</label>
+        <input #nombres type="text" id="nombres" name="nombres" class="form-control"
+          placeholder="Nombres del usuario" (blur)="validarNombres(nombres)">
+        <label class="text-danger form-text">{{ errores.nombres }}</label><br>
+      </div>
+
+      <!-- Apellidos -->
+      <div class="mb-3">
+        <label for="apellidos" class="form-label">Apellidos:</label>
+        <input #apellidos type="text" id="apellidos" name="apellidos" class="form-control"
+          placeholder="Apellidos del usuario" (blur)="validarApellidos(apellidos)">
+        <label class="text-danger form-text">{{ errores.apellidos }}</label><br>
+      </div>
+
+      <!-- Correo Electrónico -->
+      <div class="mb-3">
+        <label for="correo-electronico" class="form-label">Correo Electrónico:</label>
+        <input #correo type="email" id="correo-electronico" name="correo-electronico" class="form-control"
+          placeholder="correo@unicauca.edu.co" (blur)="validarCorreo(correo)">
+        <label class="text-danger form-text">{{ errores.correo }}</label><br>
+      </div>
+
+      <!-- Confirmar Correo Electrónico -->
+      <div class="mb-3">
+        <label for="confirmar-correo" class="form-label">Confirmar Correo Electrónico:</label>
+        <input #confirmarCorreo type="email" id="confirmar-correo" name="confirmar-correo" class="form-control"
+          placeholder="Repita su correo@unicauca.edu.co" (blur)="validarConfirmarCorreo(correo, confirmarCorreo)">
+        <label class="text-danger form-text">{{ errores.confirmarCorreo }}</label><br>
+      </div>
+
+      <!-- Género -->
+      <fieldset class="mb-3">
+        <legend class="form-label">Género:</legend>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" id="femenino" name="genero" value="femenino"
+            [(ngModel)]="genero" (blur)="validarGenero()">
+          <label class="form-check-label" for="femenino">Femenino</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" id="masculino" name="genero" value="masculino"
+            [(ngModel)]="genero" (blur)="validarGenero()">
+          <label class="form-check-label" for="masculino">Masculino</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" id="otro" name="genero" value="otro"
+            [(ngModel)]="genero" (blur)="validarGenero()">
+          <label class="form-check-label" for="otro">Otro</label>
+        </div>
+        <label class="text-danger form-text">{{ errores.genero }}</label><br>
+      </fieldset>
+
+      <!-- Fecha de nacimiento -->
+      <div class="mb-3">
+        <label for="fecha-nacimiento" class="form-label">Fecha de Nacimiento:</label>
+        <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" class="form-control">
+      </div>
+
+      <div class="d-flex justify-content-start">
+        <button type="button" id="btnRegistrar" class="btn btn-primary"
+          (click)="validarFormulario(tipoIdentificacion, numeroIdentificacion, nombres, apellidos, correo, confirmarCorreo)">
+          Registrar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

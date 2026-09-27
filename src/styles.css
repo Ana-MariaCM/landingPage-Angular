@@ -1,0 +1,17 @@
+/* Estilos globales */
+body {
+  overflow-x: hidden; /* Evita el desbordamiento horizontal */
+  margin: 0;
+}
+
+.progress {
+  height: 15px;
+}
+
+.progress-bar {
+  border-radius: 0;
+}
+
+h5 {
+  margin-bottom: 0.5rem;
+}

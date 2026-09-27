@@ -1,0 +1,46 @@
+<div class="container-fluid" id="seccion2">
+  <div class="row">
+
+    <!-- Barra lateral de especialidades -->
+    <aside class="col-12 col-sm-2 col-md-4">
+      <div class="list border rounded p-3">
+        <h3>Especialidades</h3>
+        <ul class="list-unstyled">
+          <li class="border-bottom py-2" *ngFor="let esp of especialidades; let last = last"
+              [class.border-bottom]="!last">
+            <a href="#" class="especialidad" (click)="seleccionarEspecialidad(esp); $event.preventDefault()">
+              {{ esp.nombre }}
+            </a>
+          </li>
+        </ul>
+
+        <!-- Descripción de la especialidad seleccionada -->
+        <div class="alert alert-info mt-3" *ngIf="descripcionSeleccionada">
+          {{ descripcionSeleccionada }}
+        </div>
+      </div>
+    </aside>
+
+    <!-- Sección de médicos -->
+    <main class="col-12 col-sm-10 col-md-8">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+
+        <div class="col" *ngFor="let medico of medicos">
+          <div class="card h-100">
+            <img [src]="medico.imagen" class="card-img-top img-fluid border" [alt]="medico.nombre">
+            <div class="card-body">
+              <h5 class="card-title">{{ medico.nombre }}</h5>
+              <small class="card-text">{{ medico.especialidad }}</small>
+              <br>
+              <small class="card-text">{{ medico.motivacion }}</small>
+              <br><br>
+              <button class="btn btn-primary">Agendar cita</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+</div>
