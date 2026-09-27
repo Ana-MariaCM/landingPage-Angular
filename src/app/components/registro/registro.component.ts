@@ -79,7 +79,7 @@ export class RegistroComponent {
       this.validarFormatoCorreo(input.value, 'El correo debe tener el dominio @unicauca.edu.co');
   }
 
-  // Dato que permite al usuario confirmar su registro
+  //Dato que permite al usuario confirmar su registro
   validarConfirmarCorreo(correoInput: HTMLInputElement, confirmarInput: HTMLInputElement): void {
     this.errores.confirmarCorreo =
       (confirmarInput.value.trim() === '' || confirmarInput.value !== correoInput.value)
